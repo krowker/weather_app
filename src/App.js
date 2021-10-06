@@ -5,9 +5,9 @@ import key from './key.js';
 function App() {
   const [data, setData] = useState([])
   const [lat, setLat] = useState();
-  const [long, setLong] = useState();
+  const [lon, setLong] = useState();
   const apiKey = key;
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${apiKey}`;
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -24,12 +24,12 @@ function App() {
         console.log(data);
       });
 
-  }, [lat, long]);
+  }, [lat, lon]);
 
   return (
     <div className="App">
       <p>Город:{data.name}</p>
-      <p>Температура:</p>
+      <p>Температура:{data.main.temp}</p>
     </div>
   );
 }
