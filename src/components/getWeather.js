@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from './useLocation.js'
 import key from '../key.js'
+import chooseTemperatureFrase from "./helpers/fraseTemperature.js";
 
 function GetWeather() {
    const [lat, lon] = useLocation();
@@ -34,31 +35,10 @@ function GetWeather() {
    } else if (!isLoaded) {
       return <div>Загрузка...</div>;
    } else {
-      return (
-         <>
-            <p>Город: {data.name}</p>
-            <p>Температура: {
-               data.main === undefined ?
-                  <span>Загрузка...</span> : <span>{data.main.temp}</span>
-            }</p>
-            <p>{lat}</p>
-            {/* <p>{data.main.feels_like}</p> */}
-            <p>{lon}</p>
-         </>
+      return (         
+            <div>Твоя погода: {chooseTemperatureFrase(5)}</div>         
       );
    }
-
-   // return (
-   //    <>
-   //    <p>Город: {data.name}</p>
-   //    <p>Температура: {
-   //      data.main === undefined ? <span>error</span> : <span>{data.main.temp}</span>
-   //    }</p>
-   //    <p>{lat}</p>
-   //    <p>{lon}</p>
-   //    </>
-   // );
-
 }
 
 export default GetWeather
