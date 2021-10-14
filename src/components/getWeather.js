@@ -33,7 +33,7 @@ function GetWeather() {
    if (error) {
       return <div>Ошибка: {error.message}</div>;
    } else if (!isLoaded) {
-      return <div>Загрузка...</div>;
+      return <div className="typewriter">Загрузка...</div>;
    } else {
       return (         
             <div>Твоя погода: {chooseTemperatureFrase(5)}</div>         
