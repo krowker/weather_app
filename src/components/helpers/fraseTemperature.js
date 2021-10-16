@@ -49,7 +49,7 @@ function chooseTemperatureFrase (temp=5) {
       const index = Math.floor(Math.random()*frases11to15minus.length)
       return frases11to15minus[index]
    } else if (temp>=-10 && temp<=-6) {
-      const index = Math.floor(Math.random()*frases6to10pminus.length)
+      const index = Math.floor(Math.random()*frases6to10minus.length)
       return frases6to10minus[index]
    } else if (temp>=-5 && temp<=-1) {
       const index = Math.floor(Math.random()*frases1to5minus.length)
