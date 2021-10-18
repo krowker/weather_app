@@ -27,16 +27,20 @@ function GetWeather() {
                setIsLoaded(true);
             }
          )
-   }, [lat,lon,apiKey])
+   }, [lat, lon, apiKey])
 
 
    if (error) {
       return <div>Ошибка: {error.message}</div>;
    } else if (!isLoaded) {
-      return <div className="typewriter">Загрузка...</div>;
+      return <div>Загрузка...</div>;
    } else {
-      return (         
-            <div>Твоя погода: {chooseTemperatureFrase(5)}</div>         
+      return (
+         <div>
+            <p>{data.name}</p>
+            <p>Твоя погода: {chooseTemperatureFrase(5)}</p>
+         </div>
+
       );
    }
 }
