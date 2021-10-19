@@ -40,7 +40,11 @@ function GetWeather() {
    if (error) {
       return <div>Ошибка: {error.message}</div>;
    } else if (!isLoaded) {
-      return <div>Загрузка...</div>;
+      return (
+         <div className="loading-container">
+            <div class="lds-ripple"><div></div><div></div></div>
+         </div>
+      );
    } else {
       return (
          <div style={style1} className="mainBlock hero is-fullheight">
