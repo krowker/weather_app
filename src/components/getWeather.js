@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from './useLocation.js'
 import key from '../key.js'
 import chooseTemperatureFrase from "./helpers/fraseTemperature.js";
+import getPicWeather from './helpers/getPicWeather.js'
 
 function GetWeather() {
    const [lat, lon] = useLocation();
@@ -29,6 +30,12 @@ function GetWeather() {
          )
    }, [lat, lon, apiKey])
 
+   //'`${data.weather.0.main}'
+   const imgUrl = getPicWeather('`${data.weather.0.main}')
+
+   const style1 = {
+      backgroundImage: 'url(' + imgUrl + ')',
+   }
 
    if (error) {
       return <div>Ошибка: {error.message}</div>;
@@ -36,9 +43,19 @@ function GetWeather() {
       return <div>Загрузка...</div>;
    } else {
       return (
-         <div>
-            <p>{data.name}</p>
-            <p>Твоя погода: {chooseTemperatureFrase(5)}</p>
+         <div style={style1} className="mainBlock hero is-fullheight">
+            <div className="hero-body">
+               <div className="container">
+                  <div className="forecast columns">
+                     <div className="forecast_item nameCity column box has-text-centered">{data.name}</div>
+                     <div className="forecast_item temp column box has-text-centered">{Math.floor(data.main.temp)}°C</div>
+                  </div>
+                  <div className="columns">
+                     <div className="text column box has-text-centered">{chooseTemperatureFrase(data.main.temp)}</div>
+                  </div>
+               </div>
+            </div>
+
          </div>
 
       );

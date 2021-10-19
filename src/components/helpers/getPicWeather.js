@@ -13,7 +13,7 @@
 // const drizzlePic = 'https://images.unsplash.com/photo-1576234699886-7eb7f11aecb7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80'
 // const thunderstormPic = 'https://images.unsplash.com/photo-1605727216801-e27ce1d0cc28?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80'
 
-function getPicWeather(input = clear) {
+function getPicWeather(input = 'clear') {
    const mistPic = 'https://images.unsplash.com/photo-1585508889431-a1d0d9c5a324?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=764&q=80'
    const smokePic = 'https://images.unsplash.com/photo-1625135966225-a01cb9fd9969?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=764&q=80'
    const hazePic = 'https://images.unsplash.com/photo-1533708985023-a9726305e9c8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=741&q=80'
@@ -62,7 +62,7 @@ function getPicWeather(input = clear) {
          break
       case 'snow':
          return snowPic
-         breake
+         break
       case 'rain':
          return rainPic
          break
@@ -73,3 +73,5 @@ function getPicWeather(input = clear) {
          return clearPic
    }
 }
+
+export default getPicWeather

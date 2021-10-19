@@ -1,16 +1,32 @@
 body {
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
+  /* padding: 0;
+  margin: 0; */
   font-family: Courier;
-  background-color: #2e3440;
-  color: azure;
-  word-break: break-all;
+  word-break: break;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.temp {
+  margin-bottom: 1.5rem !important;
+}
+
+.text {
+  margin: 10px;
+}
+
+.forecast_item {
+  margin: 10px
+}
+
+.mainBlock {
+  /* padding: 0;
+  margin: 0; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  /* height: 100vh;
+  display: flex; */
 }
 
 code {
