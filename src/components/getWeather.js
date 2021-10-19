@@ -19,7 +19,6 @@ function GetWeather() {
          .then(res => res.json())
          .then(
             (result) => {
-               console.log(result)
                setData(result);
                setIsLoaded(true);
             },
@@ -30,7 +29,6 @@ function GetWeather() {
          )
    }, [lat, lon, apiKey])
 
-   //'`${data.weather.0.main}'
    const imgUrl = getPicWeather('`${data.weather.0.main}')
 
    const style1 = {
