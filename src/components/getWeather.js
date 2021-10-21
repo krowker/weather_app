@@ -6,7 +6,7 @@ import getPicWeather from './helpers/getPicWeather.js'
 
 function GetWeather() {
    const [lat, lon] = useLocation();
-   const [data, setData] = useState({ main: {}, name: '' })
+   const [data, setData] = useState({weather:[{}], main: {}, name: '' })
    const [error, setError] = useState(null);
    const [isLoaded, setIsLoaded] = useState(false);
    const apiKey = key;
@@ -29,10 +29,10 @@ function GetWeather() {
          )
    }, [lat, lon, apiKey])
 
-   const imgUrl = getPicWeather('`${data.weather.0.main}')
+   const imgUrl = getPicWeather(data.weather[0].main)
 
    const style1 = {
-      backgroundImage: 'url(' + imgUrl + ')',
+      backgroundImage: 'url(' + imgUrl+ ')',
    }
 
    if (error) {
@@ -53,7 +53,7 @@ function GetWeather() {
                      <div className="forecast_item temp column box has-text-centered">{Math.floor(data.main.temp)}°C</div>
                   </div>
                   <div className="columns">
-                     <div className="text column box has-text-centered">{chooseTemperatureFrase(data.main.temp)}</div>
+                     <div className="text column box has-text-centered">{chooseTemperatureFrase(Math.floor(data.main.temp))}</div>
                   </div>
                </div>
             </div>
